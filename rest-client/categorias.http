@@ -1,0 +1,4 @@
+@route = categorias
+
+# @name findAllCategorias
+GET {{baseUrl}}/{{route}}

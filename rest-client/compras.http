@@ -1,0 +1,22 @@
+@route = compras
+
+# @name postCompra
+POST {{baseUrl}}/{{route}}
+Content-Type: application/json
+
+{
+  "fornecedorId": 1,
+  "data": "2025-02-18",
+  "frete": 0,
+  "outrasTaxas": 0,
+  "itens": [
+    {
+      "produtoVariacaoId": 18,
+      "quantidade": 2,
+      "precoUnitario": 10
+    }
+  ],
+  "formaPagamento": "PIX",
+  "valorPago": 0,
+  "quantidadeParcelas": 1
+}
