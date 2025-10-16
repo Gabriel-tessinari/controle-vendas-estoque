@@ -10,7 +10,13 @@ export async function insertCompraComItensEPagamentos(compra: CompraInput): Prom
       `INSERT INTO compras (fornecedor_id, data_compra, frete, outras_taxas, status_pagamento)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING id`,
-      [compra.fornecedorId, compra.dataCompra, compra.frete, compra.outrasTaxas, compra.statusPagamento]
+      [
+        compra.fornecedorId,
+        compra.dataCompra,
+        compra.frete,
+        compra.outrasTaxas,
+        compra.statusPagamento
+      ]
     );
     const compraId: number = compraResult.rows[0].id;
 
@@ -18,7 +24,12 @@ export async function insertCompraComItensEPagamentos(compra: CompraInput): Prom
       await client.query(
         `INSERT INTO compras_itens (compra_id, produto_variacao_id, quantidade, preco_unitario)
          VALUES ($1, $2, $3, $4)`,
-        [compraId, item.produtoVariacaoId, item.quantidade, item.precoUnitario]
+        [
+          compraId,
+          item.produtoVariacaoId,
+          item.quantidade,
+          item.precoUnitario
+        ]
       );
     }
 

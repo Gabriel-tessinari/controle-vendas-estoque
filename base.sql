@@ -54,7 +54,7 @@ CREATE TABLE movimentacoes_estoque (
     origem VARCHAR(50),                     -- COMPRA, VENDA, AJUSTE_MANUAL
     referencia_id INT,                      -- id da compra/venda/ajuste
     observacao TEXT,
-    data TIMESTAMP DEFAULT NOW()
+    data DATE DEFAULT CURRENT_DATE
 );
 
 -- ===================================================
@@ -73,7 +73,7 @@ CREATE TABLE fornecedores (
 CREATE TABLE compras (
     id SERIAL PRIMARY KEY,
     fornecedor_id INT NOT NULL,
-    data_compra TIMESTAMP DEFAULT NOW(),
+    data_compra DATE DEFAULT CURRENT_DATE,
     frete DECIMAL(10,2) DEFAULT 0,
     outras_taxas DECIMAL(10,2) DEFAULT 0,
     status_pagamento VARCHAR(20) DEFAULT 'ABERTO',  -- ABERTO | PAGO_PARCIAL | PAGO_TOTAL
@@ -130,7 +130,7 @@ CREATE TABLE clientes (
 CREATE TABLE vendas (
     id SERIAL PRIMARY KEY,
     cliente_id INT REFERENCES clientes(id) ON DELETE SET NULL,  -- venda sem cliente é permitida
-    data_venda TIMESTAMP DEFAULT NOW(),
+    data_venda DATE DEFAULT CURRENT_DATE,
     frete DECIMAL(10,2) DEFAULT 0,
     outras_taxas DECIMAL(10,2) DEFAULT 0,
     status_pagamento VARCHAR(20) DEFAULT 'ABERTO'  -- ABERTO | PAGO_PARCIAL | PAGO_TOTAL
