@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Rotas
 app.use('/categorias', categoriasRoutes);
-app.use('compras', comprasRoutes);
+app.use('/compras', comprasRoutes);
 app.use('/produtos', produtosRoutes);
 app.use("/kits", kitsRoutes);
 

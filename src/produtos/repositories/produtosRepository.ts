@@ -5,21 +5,23 @@ import { Produto } from "../models/Produto";
 import { ProdutoInput } from "../models/ProdutoInput";
 import { ProdutoVariacao } from "../models/ProdutoVariacao";
 
-export async function produtoExiste(produtoId: number): Promise<boolean> {
-  const res = await pool.query(
-    `SELECT 1 FROM produtos WHERE id = $1`,
-    [produtoId]
-  );
+export async function produtoExiste(produtoId: number, client?: any): Promise<boolean> {
+  const executor = client || pool;
+
+  const query = `SELECT 1 FROM produtos WHERE id = $1`;
+
+  const res = await executor.query(query, [produtoId]);
   return (res.rowCount ?? 0) > 0;
 }
 
-export async function variacoesExistem(ids: number[]): Promise<boolean> {
+export async function variacoesExistem(ids: number[], client?: any): Promise<boolean> {
   if (!ids.length) return false;
 
-  const res = await pool.query(
-    `SELECT COUNT(*)::int AS total FROM produtos_variacoes WHERE id = ANY($1)`,
-    [ids]
-  );
+  const executor = client || pool;
+
+  const query = `SELECT COUNT(*)::int AS total FROM produtos_variacoes WHERE id = ANY($1)`;
+
+  const res = await executor.query(query, [ids]);
   return res.rows[0].total === ids.length;
 }
 
@@ -72,4 +74,14 @@ export async function insertProdutosComVariacoesLote(produtos: ProdutoInput[]): 
   } finally {
     client.release();
   }
+}
+
+export async function updateProdutoVariacaoEstoque(produtoVariacaoId: number, quantidade: number, client?: any): Promise<void> {
+  const executor = client || pool;
+
+  const query = `UPDATE produto_variacoes SET estoque = estoque + $1 WHERE id = $2`;
+  const values = [quantidade, produtoVariacaoId];
+
+  await executor.query(query, values);
+  return;
 }
