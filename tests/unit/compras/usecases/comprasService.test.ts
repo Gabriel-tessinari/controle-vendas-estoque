@@ -1,7 +1,7 @@
-import { ComprasService } from "../../../src/services/comprasService";
-import * as produtosRepo from "../../../src/produtos/repositories/produtosRepository";
+import { ComprasService } from "../../../../src/services/comprasService";
+import * as produtosRepo from "../../../../src/produtos/repositories/produtosRepository";
 import * as comprasRepo from "../../../src/repositories/comprasRepository";
-import { BusinessError } from "../../../src/shared/errors/BusinessError";
+import { BusinessError } from "../../../../src/shared/errors/BusinessError";
 import { CompraInput, CompraPagamentoInput, FormaPagamento } from "../../../src/models/Compra";
 
 jest.mock("../../../src/produtos/repositories/produtosRepository");

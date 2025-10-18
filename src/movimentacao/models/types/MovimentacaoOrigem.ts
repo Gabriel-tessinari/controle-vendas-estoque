@@ -1,0 +1,1 @@
+export type MovimentacaoOrigem = "COMPRA" | "VENDA" | "AJUSTE_MANUAL";
