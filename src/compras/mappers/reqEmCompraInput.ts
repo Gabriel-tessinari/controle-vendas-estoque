@@ -65,17 +65,17 @@ function validaCompra(body: any): void {
 function validaCompraItem(item: any, index: number): void {
   validar(
     typeof item.produtoVariacaoId !== "number" || item.produtoVariacaoId <= 0,
-    `Item #${index + 1}: id da variação de produto inválido.`
+    `Compra - Item #${index + 1}: id da variação de produto inválido.`
   );
 
   validar(
     typeof item.quantidade !== "number" || item.quantidade <= 0,
-    `Item #${index + 1}: quantidade inválida.`
+    `Compra - Item #${index + 1}: quantidade inválida.`
   );
 
   validar(
     typeof item.precoUnitario !== "number" || item.precoUnitario <= 0,
-    `Item #${index + 1}: preço unitário inválido.`
+    `Compra - Item #${index + 1}: preço unitário inválido.`
   );
 }
 
@@ -91,17 +91,17 @@ function geraCompraPagamentoLote(body: any, valorTotal: number): CompraPagamento
 function validaCompraPagamento(body: any): void {
   validar(
     body.valorPago == null || isNaN(body.valorPago) || body.valorPago < 0,
-    "Valor pago inválido."
+    "Compra: Valor pago inválido."
   );
 
   validar(
     body.quantidadeParcelas < 1,
-    "Quantidade de parcelas inválida."
+    "Compra: Quantidade de parcelas inválida."
   );
 
   validar(
     !FORMAS_PAGAMENTO.includes(body.formaPagamento),
-    "Forma de pagamento inválida."
+    "Compra: Forma de pagamento inválida."
   );
 }
 

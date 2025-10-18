@@ -41,49 +41,64 @@ describe('reqEmCompraInput', () => {
         .toThrow("A lista de itens deve conter ao menos um item.");
     });
 
-    // it("deve lançar erro se produtoVariacaoId do item for inválido", () => {
-    //   const req = {
-    //     ...body,
-    //     itens: [{
-    //       produtoVariacaoId: 0,
-    //       quantidade: 2,
-    //       precoUnitario: 10
-    //     }]
-    //   };
+    it("deve lançar erro se produtoVariacaoId do item for inválido", () => {
+      const body: any = CompraRequestMock.criarCompraRequest({
+        itens: [
+          CompraRequestMock.criarCompraItemRequest({ produtoVariacaoId: 0 })
+        ]
+      });
 
-    //   expect(() => mapper.mapRequestToCompraInput(req)).toThrow(BusinessError);
-    //   expect(() => mapper.mapRequestToCompraInput(req))
-    //     .toThrow("O item 1 precisa ter 'produtoVariacaoId' válido.");
-    // });
+      expect(() => reqEmCompraInput(body)).toThrow(BusinessError);
+      expect(() => reqEmCompraInput(body))
+        .toThrow("Compra - Item #1: id da variação de produto inválido.");
+    });
 
-    // it("deve lançar erro se quantidade do item for inválida", () => {
-    //   const req = {
-    //     ...body,
-    //     itens: [{
-    //       produtoVariacaoId: 1,
-    //       quantidade: 0,
-    //       precoUnitario: 10
-    //     }]
-    //   };
+    it("deve lançar erro se quantidade do item for inválido", () => {
+      const body: any = CompraRequestMock.criarCompraRequest({
+        itens: [
+          CompraRequestMock.criarCompraItemRequest({ quantidade: 0 })
+        ]
+      });
 
-    //   expect(() => mapper.mapRequestToCompraInput(req)).toThrow(BusinessError);
-    //   expect(() => mapper.mapRequestToCompraInput(req))
-    //     .toThrow("O item 1 precisa ter 'quantidade' maior que zero.");
-    // });
+      expect(() => reqEmCompraInput(body)).toThrow(BusinessError);
+      expect(() => reqEmCompraInput(body))
+        .toThrow("Compra - Item #1: quantidade inválida.");
+    });
 
-    // it("deve lançar erro se precoUnitario do item for inválido", () => {
-    //   const req = {
-    //     ...body,
-    //     itens: [{
-    //       produtoVariacaoId: 1,
-    //       quantidade: 2,
-    //       precoUnitario: 0
-    //     }]
-    //   };
+    it("deve lançar erro se precoUnitario do item for inválido", () => {
+      const body: any = CompraRequestMock.criarCompraRequest({
+        itens: [
+          CompraRequestMock.criarCompraItemRequest({ precoUnitario: 0 })
+        ]
+      });
 
-    //   expect(() => mapper.mapRequestToCompraInput(req)).toThrow(BusinessError);
-    //   expect(() => mapper.mapRequestToCompraInput(req))
-    //     .toThrow("O item 1 precisa ter 'precoUnitario' maior que zero.");
-    // });
+      expect(() => reqEmCompraInput(body)).toThrow(BusinessError);
+      expect(() => reqEmCompraInput(body))
+        .toThrow("Compra - Item #1: preço unitário inválido.");
+    });
+
+    it("deve lançar erro se valorPago for inválido", () => {
+      const body: any = CompraRequestMock.criarCompraRequest({ valorPago: undefined });
+
+      expect(() => reqEmCompraInput(body)).toThrow(BusinessError);
+      expect(() => reqEmCompraInput(body))
+        .toThrow("Compra: Valor pago inválido.");
+    });
+
+    it("deve lançar erro se quantidadeParcelas for inválido", () => {
+      const body: any = CompraRequestMock.criarCompraRequest({ quantidadeParcelas: -18 });
+
+      expect(() => reqEmCompraInput(body)).toThrow(BusinessError);
+      expect(() => reqEmCompraInput(body))
+        .toThrow("Compra: Quantidade de parcelas inválida.");
+    });
+
+    it("deve lançar erro se formaPagamento for inválido", () => {
+      const body: any = CompraRequestMock.criarCompraRequest({ formaPagamento: undefined });
+
+      expect(() => reqEmCompraInput(body)).toThrow(BusinessError);
+      expect(() => reqEmCompraInput(body))
+        .toThrow("Compra: Forma de pagamento inválida.");
+    });
   });
 });
