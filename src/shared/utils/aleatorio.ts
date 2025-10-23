@@ -1,6 +1,8 @@
-import { FormaPagamento, FORMAS_PAGAMENTO } from "../../compras/models/types/FormaPagamento";
-import { StatusPagamento, STATUS_PAGAMENTO } from "../../compras/models/types/StatusPagamento";
-import { StatusParcela, STATUS_PARCELA } from "../../compras/models/types/StatusParcela";
+import { FORMAS_PAGAMENTO, FormaPagamento } from "../../compras/models/types/FormaPagamento";
+import { STATUS_PAGAMENTO, StatusPagamento } from "../../compras/models/types/StatusPagamento";
+import { STATUS_PARCELA, StatusParcela } from "../../compras/models/types/StatusParcela";
+import { MOVIMENTACAO_ORIGEM, MovimentacaoOrigem } from "../../movimentacoes/models/types/MovimentacaoOrigem";
+import { MOVIMENTACAO_TIPO, MovimentacaoTipo } from "../../movimentacoes/models/types/MovimentacaoTipo";
 
 export class Aleatorios {
   static getString(prefix = 'Item', length = 5): string {
@@ -38,5 +40,15 @@ export class Aleatorios {
   static getStatusParcela(): StatusParcela {
     const index: number = Math.floor(Math.random() * STATUS_PARCELA.length);
     return STATUS_PARCELA[index];
+  }
+
+  static getMovimentacaoTipo(): MovimentacaoTipo {
+    const index: number = Math.floor(Math.random() * MOVIMENTACAO_TIPO.length);
+    return MOVIMENTACAO_TIPO[index];
+  }
+
+  static getMovimentacaoOrigem(): MovimentacaoOrigem {
+    const index: number = Math.floor(Math.random() * MOVIMENTACAO_ORIGEM.length);
+    return MOVIMENTACAO_ORIGEM[index];
   }
 }

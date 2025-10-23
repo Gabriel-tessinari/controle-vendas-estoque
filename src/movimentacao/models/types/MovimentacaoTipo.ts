@@ -1,1 +1,0 @@
-export type MovimentacaoTipo = "ENTRADA" | "SAIDA" | "AJUSTE";
