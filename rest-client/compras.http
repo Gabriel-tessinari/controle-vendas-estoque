@@ -5,18 +5,48 @@ POST {{baseUrl}}/{{route}}
 Content-Type: application/json
 
 {
-  "fornecedorId": 1,
-  "data": "2025-02-18",
+  "fornecedorId": 3,
+  "data": "2025-09-06",
   "frete": 0,
   "outrasTaxas": 0,
   "itens": [
     {
-      "produtoVariacaoId": 18,
-      "quantidade": 2,
-      "precoUnitario": 10
+      "produtoVariacaoId": 1,
+      "quantidade": 5,
+      "precoUnitario": 22.70
+    },
+    {
+      "produtoVariacaoId": 2,
+      "quantidade": 5,
+      "precoUnitario": 7.78
+    },
+    {
+      "produtoVariacaoId": 3,
+      "quantidade": 5,
+      "precoUnitario": 7.78
+    },
+    {
+      "produtoVariacaoId": 4,
+      "quantidade": 5,
+      "precoUnitario": 2.70
+    },
+    {
+      "produtoVariacaoId": 5,
+      "quantidade": 5,
+      "precoUnitario": 4.53
+    },
+    {
+      "produtoVariacaoId": 6,
+      "quantidade": 5,
+      "precoUnitario": 9.27
+    },
+    {
+      "produtoVariacaoId": 7,
+      "quantidade": 5,
+      "precoUnitario": 4.80
     }
   ],
-  "formaPagamento": "PIX",
+  "formaPagamento": "CREDITO",
   "valorPago": 0,
-  "quantidadeParcelas": 1
+  "quantidadeParcelas": 10
 }

@@ -5,22 +5,13 @@ import { Produto } from "../models/Produto";
 import { ProdutoInput } from "../models/ProdutoInput";
 import { ProdutoVariacao } from "../models/ProdutoVariacao";
 
-export async function produtoExiste(produtoId: number): Promise<boolean> {
-  const res = await pool.query(
-    `SELECT 1 FROM produtos WHERE id = $1`,
-    [produtoId]
-  );
+export async function produtoExiste(produtoId: number, client?: any): Promise<boolean> {
+  const executor = client || pool;
+
+  const query = `SELECT 1 FROM produtos WHERE id = $1`;
+
+  const res = await executor.query(query, [produtoId]);
   return (res.rowCount ?? 0) > 0;
-}
-
-export async function variacoesExistem(ids: number[]): Promise<boolean> {
-  if (!ids.length) return false;
-
-  const res = await pool.query(
-    `SELECT COUNT(*)::int AS total FROM produtos_variacoes WHERE id = ANY($1)`,
-    [ids]
-  );
-  return res.rows[0].total === ids.length;
 }
 
 export async function insertProdutosComVariacoesLote(produtos: ProdutoInput[]): Promise<Produto[]> {
