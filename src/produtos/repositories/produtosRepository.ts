@@ -66,6 +66,21 @@ export async function produtoExiste(produtoId: number, client?: any): Promise<bo
   return (res.rowCount ?? 0) > 0;
 }
 
+export async function produtosExistem(ids: number[], client?: any): Promise<boolean> {
+  if (!ids.length) return false;
+
+  const executor = client || pool;
+
+  const query = `
+    SELECT COUNT(*)::int AS total
+    FROM produtos
+    WHERE id = ANY($1)
+  `;
+
+  const res = await executor.query(query, [ids]);
+  return res.rows[0].total === ids.length;
+}
+
 export async function selectProdutosComVariacoes(pesquisar: string, client?: any): Promise<Produto[]> {
   const executor = client || pool;
   const params: any[] = [];

@@ -1,20 +1,20 @@
-@route = kits
+@route = conjuntos
 
 # @name postKit
 POST {{baseUrl}}/{{route}}
 Content-Type: application/json
 
 {
-  "nome": "Conjunto Top Lorena Plus com Legging Clássica",
+  "nome": "Conjunto Top Kim com Bermuda Bolso",
   "descricao": null,
-  "precoVenda": 179.90,
+  "precoVenda": 169.90,
   "itens": [
     {
-      "produtoId": 2,
+      "produtoId": 11,
       "quantidade": 1
     },
     {
-      "produtoId": 3,
+      "produtoId": 12,
       "quantidade": 1
     }
   ]

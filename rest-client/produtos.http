@@ -6,59 +6,49 @@ Content-Type: application/json
 
 [
   {
-    "nome": "Gel Aromatizante Beijável Para Virilha Blow Girl 320ml Hot Flowers",
-    "categoriaId": 2,
+    "nome": "Blusão Tule",
+    "categoriaId": 1,
+    "precoVenda": 69.90,
+    "variacoes": [
+      { "descricao": "Preto" },
+      { "descricao": "Lavanda" },
+      { "descricao": "Telha" },
+      { "descricao": "Pink" }
+    ]
+  },
+  {
+    "nome": "Blusa Dry",
+    "categoriaId": 1,
+    "precoVenda": 69.90,
+    "variacoes": [
+      { "descricao": "Azul Índigo" },
+      { "descricao": "Roxo" },
+      { "descricao": "Rosa" },
+      { "descricao": "Laranja" }
+    ]
+  },
+  {
+    "nome": "Regata Dry",
+    "categoriaId": 1,
+    "precoVenda": 69.90,
+    "variacoes": [
+      { "descricao": "Roxo Claro" }
+    ]
+  },
+  {
+    "nome": "Top Kim",
+    "categoriaId": 1,
     "precoVenda": 59.90,
     "variacoes": [
-      { "descricao": "Único" }
+      { "descricao": "Bicolor" }
     ]
   },
   {
-    "nome": "Gel Funcional Hot Ice e Vibra Xana Loka 15g Hot Flowers",
-    "categoriaId": 2,
-    "precoVenda": 24.90,
+    "nome": "Bermuda Bolso",
+    "categoriaId": 1,
+    "precoVenda": 110.00,
     "variacoes": [
-      { "descricao": "Único" }
-    ]
-  },
-  {
-    "nome": "Gel Funcional Anal Kuloko 15g Hot Flowers",
-    "categoriaId": 2,
-    "precoVenda": 24.90,
-    "variacoes": [
-      { "descricao": "Único" }
-    ]
-  },
-  {
-    "nome": "Anel Peniano com Vibro Bichinho Mega Import",
-    "categoriaId": 2,
-    "precoVenda": 14.90,
-    "variacoes": [
-      { "descricao": "Único" }
-    ]
-  },
-  {
-    "nome": "Vibrador Bullet Ovo Vibratório Importação",
-    "categoriaId": 2,
-    "precoVenda": 19.90,
-    "variacoes": [
-      { "descricao": "Único" }
-    ]
-  },
-  {
-    "nome": "Vibrador Ponto G com Formato Golfinho Aveludado Importação",
-    "categoriaId": 2,
-    "precoVenda": 34.90,
-    "variacoes": [
-      { "descricao": "Único" }
-    ]
-  },
-  {
-    "nome": "Masturbador Egg Magical Kiss Mega Import",
-    "categoriaId": 2,
-    "precoVenda": 29.90,
-    "variacoes": [
-      { "descricao": "Único" }
+      { "descricao": "Bicolor" }
     ]
   }
 ]
