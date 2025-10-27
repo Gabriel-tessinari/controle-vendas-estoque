@@ -8,7 +8,7 @@ export async function getCatalogo(req: Request, res: Response): Promise<void> {
 
     const catalogo = await listarCatalogo(pesquisar);
 
-    res.status(201).json(catalogo);
+    res.status(200).json(catalogo);
   } catch (err) {
     if (err instanceof BusinessError) {
       res.status(400).json({ error: err.message });
