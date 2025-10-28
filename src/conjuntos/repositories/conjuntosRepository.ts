@@ -8,7 +8,7 @@ export async function insertConjunto(conjunto: ConjuntoInput, client?: any): Pro
   const executor = client || pool;
 
   const query = `
-    INSERT INTO kits (nome, descricao, preco_compra, preco_venda, ativo)
+    INSERT INTO conjuntos (nome, descricao, preco_compra, preco_venda, ativo)
     VALUES ($1, $2, 0, $3, true)
     RETURNING *
   `;
@@ -45,11 +45,11 @@ export async function selectConjuntosComItens(pesquisar: string, client?: any): 
       c.preco_compra AS preco_compra,
       c.ativo AS ativo,
       i.id AS item_id,
-      i.kit_id AS conjunto_id,
+      i.conjunto_id AS conjunto_id,
       i.produto_id AS produto_id,
       i.quantidade AS quantidade
-    FROM kits c
-    LEFT JOIN kits_itens i ON i.kit_id = c.id
+    FROM conjuntos c
+    LEFT JOIN conjuntos_itens i ON i.conjunto_id = c.id
     ${whereClause}
     ORDER BY c.nome ASC, c.id ASC;
   `;

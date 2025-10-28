@@ -164,10 +164,10 @@ CREATE TABLE vendas_pagamentos (
 );
 
 -- ===================================================
--- Tabela: kits
+-- Tabela: conjuntos
 -- Descrição: Representa um conjunto de produtos
 -- ===================================================
-CREATE TABLE kits (
+CREATE TABLE conjuntos (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(255) NOT NULL,
   descricao TEXT,
@@ -177,12 +177,12 @@ CREATE TABLE kits (
 );
 
 -- ===================================================
--- Tabela: kits_itens
+-- Tabela: conjuntos_itens
 -- Descrição: Produtos (com variação) que compõem um kit
 -- ===================================================
-CREATE TABLE kits_itens (
+CREATE TABLE conjuntos_itens (
   id SERIAL PRIMARY KEY,
-  kit_id INT NOT NULL REFERENCES kits(id) ON DELETE CASCADE,
+  conjunto_id INT NOT NULL REFERENCES conjuntos(id) ON DELETE CASCADE,
   produto_id INT NOT NULL REFERENCES produtos(id),
   quantidade INT NOT NULL
 );

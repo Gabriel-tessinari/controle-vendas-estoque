@@ -1,4 +1,4 @@
 @route = catalogo
 
 # @name getCatalogo
-GET {{baseUrl}}/{{route}}
+GET {{baseUrl}}/{{route}}?pesquisar=

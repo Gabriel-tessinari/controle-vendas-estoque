@@ -7,7 +7,7 @@ export async function insertConjuntoItem(conjuntoId: number, conjuntoItem: Conju
   const executor = client || pool;
 
   const query = `
-    INSERT INTO kits_itens (kit_id, produto_id, quantidade)
+    INSERT INTO conjuntos_itens (conjunto_id, produto_id, quantidade)
     VALUES ($1, $2, $3)
     RETURNING *
   `;
