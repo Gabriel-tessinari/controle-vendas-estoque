@@ -1,7 +1,7 @@
-import { Kit } from "../../models/Kit";
+import { Conjunto } from "../../conjuntos/models/Conjunto";
 import { Produto } from "../../produtos/models/Produto";
 
 export interface Catalogo {
   produtos: Produto[];
-  kits: Kit[];
+  conjuntos: Conjunto[];
 }

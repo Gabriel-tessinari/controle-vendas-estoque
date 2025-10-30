@@ -19,6 +19,10 @@ export class Aleatorios {
     return parseFloat(num.toFixed(decimals));
   }
 
+  static getBoolean(): boolean {
+    return Math.random() >= 0.5;
+  }
+
   static getDataString(inicio = '2024-01-01', fim = '2025-12-31'): string {
     const start: number = new Date(inicio).getTime();
     const end: number = new Date(fim).getTime();
