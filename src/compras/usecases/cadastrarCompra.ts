@@ -32,7 +32,7 @@ export async function cadastrarCompra(compra: CompraInput): Promise<number> {
 
 async function validarItens(itens: CompraItemInput[]): Promise<void> {
   const variacaoIds = itens.map(i => i.produtoVariacaoId);
-  const existem: boolean = await variacoesExistem(variacaoIds);
+  const existem = await variacoesExistem(variacaoIds);
 
   validar(!existem, "Uma ou mais variações de produto não existem.");
 }

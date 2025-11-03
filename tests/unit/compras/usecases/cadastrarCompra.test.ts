@@ -21,7 +21,7 @@ import { cadastrarCompra } from "../../../../src/compras/usecases/cadastrarCompr
 import * as ComprasRepo from "../../../../src/compras/repositories/comprasRepository";
 import { cadastrarMovimentacaoCompra } from "../../../../src/movimentacoes/usecases/cadastrarMovimentacaoCompra";
 import { variacoesExistem } from "../../../../src/produtos/repositories/produtosVariacoesRepository";
-import { pool } from "../../../../src/db"; // este pool é o mockPool
+import { pool } from "../../../../src/db";
 import { CompraInputMock } from "../../../mocks/compras/CompraInputMock";
 import { BusinessError } from "../../../../src/shared/errors/BusinessError";
 
