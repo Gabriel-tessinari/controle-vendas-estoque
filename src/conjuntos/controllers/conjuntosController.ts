@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { BusinessError } from "../../shared/errors/BusinessError";
 import { reqEmConjuntoInput } from "../mappers/reqEmConjuntoInput";
-import { cadastrarConjuntoComItens } from "../usecases/cadastrarConjunto";
+import { cadastrarConjuntoComItens } from "../usecases/cadastrarConjuntoComItens";
 
 export async function postConjuntoComItens(req: Request, res: Response): Promise<void> {
   try {
