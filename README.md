@@ -1,6 +1,6 @@
 # Loja
 
-Projeto Node.js + Express + TypeScript para gestão de categorias e outros recursos.
+Projeto Node.js + Express + TypeScript para gestão de caixa e estoque.
 
 ## Requisitos
 
@@ -33,6 +33,8 @@ npm start
 
 ## Endpoints disponíveis
 
+- `GET /catalogo` → Retorna o catálogo de produtos e conjuntos
 - `GET /categorias` → Retorna lista de categorias
-- `POST /produtos` → Salva um produto com uma lista de variações
-- `POST /kits` → Salva um kit com uma lista de itens
+- `POST /compras` → Salva uma compra com seus itens
+- `POST /conjuntos` → Salva um conjunto com seus itens
+- `POST /produtos/lote` → Salva lista de produtos com suas variações
